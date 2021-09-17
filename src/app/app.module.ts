@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CurrencyChartComponent } from './currency-chart/currency-chart.component';
 import { ChartComponent } from './currency-chart/chart/chart.component';
 import { ControlBoxComponent } from './currency-chart/control-box/control-box.component';
+import { SearchBoxComponent } from './currency-chart/search-box/search-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrencyChartComponent,
     ChartComponent,
-    ControlBoxComponent
+    ControlBoxComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,
