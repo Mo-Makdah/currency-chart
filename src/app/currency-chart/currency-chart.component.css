@@ -9,13 +9,12 @@
     flex-grow: 8;
 }
 
-#section-control-box{
+#section-search-box{
     border: 1px black solid;
     flex-grow: 6;
     max-width: 300px;
     overflow: auto;
     min-height: 300px;
-    border: 1px solid steelblue;
     padding: 30px;
     border-radius: 5px;
 

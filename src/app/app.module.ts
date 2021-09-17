@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CurrencyChartComponent } from './currency-chart/currency-chart.component';
 import { ChartComponent } from './currency-chart/chart/chart.component';
-import { ControlBoxComponent } from './currency-chart/control-box/control-box.component';
 import { SearchBoxComponent } from './currency-chart/search-box/search-box.component';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { SearchBoxComponent } from './currency-chart/search-box/search-box.compo
     AppComponent,
     CurrencyChartComponent,
     ChartComponent,
-    ControlBoxComponent,
     SearchBoxComponent
   ],
   imports: [
