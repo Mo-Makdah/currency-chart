@@ -36,7 +36,7 @@ export class ChartComponent implements OnInit {
         align: 'left'
       },
       xaxis: {
-        type: 'datetime'
+        type: 'date'
       },
       yaxis: {
         tooltip: {
@@ -47,15 +47,15 @@ export class ChartComponent implements OnInit {
       series: [{
         name: 'sales',
         data: [{
-          x: new Date(2016, 1, 1),
+          x: new Date(2016, 1, 1).toLocaleDateString(),
           y: [51.98, 56.29, 51.59, 53.85]
         },
         {
-          x: new Date(2016, 2, 1),
+          x: new Date(2016, 1, 2).toLocaleDateString(),
           y: [53.66, 54.99, 51.35, 52.95]
         },
         {
-          x: new Date(2016, 8, 1),
+          x: new Date(2016, 1, 3).toLocaleDateString(),
           y: [52.76, 57.35, 52.15, 57.03]
         }]
       }],
