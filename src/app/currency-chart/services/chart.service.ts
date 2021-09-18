@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { Day } from '../Interfaces/Day';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,11 @@ export class ChartService {
   
   constructor(private http: HttpClient) { }
 
-  getCoins(): Observable<Day[]> {
-      return this.http.get<Day[]>(this.coinURL);
+  getCoins(): Observable<any> {
+      return this.http.get<any>("https://api.coinpaprika.com/v1/coins/btcd-bitcoin/ohlcv/historical?start=2018-02-15&end=2018-03-15").pipe(catchError(this.handleError));
+  }
+
+  handleError(error:HttpErrorResponse){
+    return throwError("Server error, make sure you have typed the correct coin ID");
   }
 }

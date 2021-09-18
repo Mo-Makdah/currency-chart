@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as ApexCharts from 'apexcharts';
+import { Coin } from '../Interfaces/Coin';
+import { DayData } from '../Interfaces/DayData';
 import { ChartService } from '../services/chart.service';
 
 @Component({
@@ -9,6 +11,9 @@ import { ChartService } from '../services/chart.service';
 })
 
 export class ChartComponent implements OnInit {
+
+  private data: DayData[] = [];
+  private coin?: Coin;
   
   constructor(private chartService: ChartService) { }
 
@@ -58,13 +63,23 @@ export class ChartComponent implements OnInit {
           x: new Date(2016, 1, 3).toLocaleDateString(),
           y: [52.76, 57.35, 52.15, 57.03]
         }]
-      }],
+      },
+      
+      
+    ],
   
     }
 
     // chart object construction and rendering
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
+
+    this.chartService
+            .getCoins()
+            .subscribe(
+              (coins) => (console.log(coins)),
+              (error) => (console.log(error)),
+              );
     
   }
 
