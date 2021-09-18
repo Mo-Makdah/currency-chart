@@ -5,13 +5,13 @@ input{
 
 }
 
-form {
+#container {
     justify-content: space-between;
     flex-direction: column;
     height: 100%;
     display: flex;
   }
-  form .btn-container{
+#container .btn-container{
     justify-content: flex-end;
     display: flex;
   }
@@ -34,11 +34,9 @@ form {
   .btn:hover{
     background-color: #00B746;
   }
-  .btn:focus {
-    outline: none;
-  }
+ 
   .btn:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
   }
   
   .btn-block {

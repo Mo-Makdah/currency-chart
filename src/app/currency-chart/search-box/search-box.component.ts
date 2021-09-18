@@ -6,18 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
-  fromDate: String = "";
-  toDate:String = "";
+  
+  // fields for the component
+  coinId: String = "";
+  fromDate?: Date;
+  toDate?: Date;
+
+  responseMessage: String = "This message will be dynamic";
+
   constructor() { }
 
   ngOnInit(): void {
-    var toDateObject = new Date()
-    var fromDateObject = new Date(new Date().setDate(toDateObject.getDate()-30));
-
-    this.fromDate = fromDateObject.toISOString().split("T")[0];
-    this.toDate = toDateObject.toISOString().split("T")[0];
-
-    
+    // get today's day and calculate the date before 30 days and fill the variables
+    this.coinId = "btc-bitcoin";
+    this.toDate = new Date();
+    this.fromDate =  new Date(new Date().setDate(this.toDate.getDate()-30));
   }
 
 }

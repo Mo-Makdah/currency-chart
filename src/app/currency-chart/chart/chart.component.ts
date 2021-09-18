@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as ApexCharts from 'apexcharts';
-import { Coin } from '../Interfaces/Coin';
+import { ChartData } from '../Interfaces/ChartData';
 import { DayData } from '../Interfaces/DayData';
 import { ChartService } from '../services/chart.service';
 
@@ -12,24 +12,62 @@ import { ChartService } from '../services/chart.service';
 
 export class ChartComponent implements OnInit {
 
-  private data: DayData[] = [];
-  private coin?: Coin;
+  // the data which we will fill our chart from
+  chartData:ChartData[] = [];
   
   constructor(private chartService: ChartService) { }
 
   // run on in init
   ngOnInit(): void {
 
-    // render the chart
-    this.renderChart();
+    // get data from the parent component which takes from search box
 
-    // get information from control-box
+    // fetch days data and render
+    this.getDaysData("btc-bitcsoin", "2018-02-03", "2018-04-03");
 
   }
 
+  getDaysData(coinId:String, fromDate:String, toDate: String) {
+    this.chartService
+    .getDaysData(coinId, fromDate, toDate)
+    .subscribe(
+      (data:DayData[]) => {
+        // clear the chartData from previous data       
+        this.chartData = [];
 
-  renderChart() {
-    // chart options
+        // fill the chartData with the data retrieved from the server
+        for(var i = 0; i < data.length; i++){
+
+          // parse data
+          var dateString = data[i].time_open.toString();
+          var dateObject = new Date(dateString);
+          var open = data[i].open;
+          var high = data[i].high;
+          var low = data[i].low;
+          var close = data[i].close;
+
+          // create the data object and put it in the chartData array
+          var chartDataObject = {
+            x: dateObject,
+            y: [open, high, low, close]
+          };
+
+          this.chartData.push(chartDataObject);
+        }
+        
+        
+        // render the new chart
+        this.renderChart("Loading...");
+      },
+      // error handling
+      (error) => {
+        console.log(error);
+        this.renderChart("Oops, Somthing Went Wrong");
+      },
+    );
+  }
+
+  renderChart(noDataMessage: String) {
     var options = {
       // chart properties
       chart: {
@@ -41,46 +79,35 @@ export class ChartComponent implements OnInit {
         align: 'left'
       },
       xaxis: {
-        type: 'date'
+        type: 'datetime'
       },
       yaxis: {
         tooltip: {
           enabled: true
         }
       },
+
       // chart data
       series: [{
         name: 'sales',
-        data: [{
-          x: new Date(2016, 1, 1).toLocaleDateString(),
-          y: [51.98, 56.29, 51.59, 53.85]
+        data: this.chartData,
         },
-        {
-          x: new Date(2016, 1, 2).toLocaleDateString(),
-          y: [53.66, 54.99, 51.35, 52.95]
-        },
-        {
-          x: new Date(2016, 1, 3).toLocaleDateString(),
-          y: [52.76, 57.35, 52.15, 57.03]
-        }]
-      },
-      
-      
-    ],
+      ],
+      // in case of no data
+      noData: {
+        text: noDataMessage,
+        align: 'center',
+        verticalAlign: 'middle',
+        style: {
+          fontSize: '20px',
+        }
+      }
   
     }
 
     // chart object construction and rendering
     var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-
-    this.chartService
-            .getCoins()
-            .subscribe(
-              (coins) => (console.log(coins)),
-              (error) => (console.log(error)),
-              );
-    
+    chart.render();  
   }
 
 }

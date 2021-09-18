@@ -1,8 +1,8 @@
-<form action="">
+<div id="container">
     <table>
         <tr>
-            <td>Coin ID: </td>
-            <td><input list="coins" name="coins" value="btc-bitcoin"/></td>
+            <td>Currency ID: </td>
+            <td><input list="coins" name="coins" value={{coinId}}/></td>
         </tr>
         <br>
         <br>
@@ -13,26 +13,18 @@
             <td>From: </td>
             <td><input type="date" id="from-date" value={{fromDate}}/></td>
         </tr>
-        
+            
         <tr>
             <td>To: </td>
             <td><input type="date" id="to-date" value={{toDate}}/></td>
         </tr>
-    
     </table>
-    <div class="btn-holder">
-        <input class="btn" type="submit" value="Submit">
+
+    <div>
+        <p>{{responseMessage}}</p>
     </div>
-</form>
-
-
-
-<datalist id="coins">
-    <option value="btc-bitcoin">
-    <option value="eth-ethereum">
-    <option value="hex-hex">
-    <option value="ada-cardano">
-    <option value="usdt-tether">
-    <option value="bnb-binance-coin">
-    <option value="xrp-xrp">
-</datalist>
+    
+    <div class="btn-holder">
+        <button class="btn">Get Chart</button>
+    </div>
+</div>
