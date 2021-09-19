@@ -44,7 +44,9 @@ You can use this component in any Angular web application, you just have to foll
   ],`
 4) You can now use `<app-currency-chart></app-currency-chart>` inside your app and the chart-currency component will appear in your page
 
-
+## Download Node Modules
+This repository doesn't include the `node_modules` file which is necessary for running the angular web application
+To download the modules, just run `npm install` in the terminal in the root folder of the project
 
 ## Development server
 
