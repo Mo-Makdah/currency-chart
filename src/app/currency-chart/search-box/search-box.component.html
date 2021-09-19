@@ -1,8 +1,12 @@
 <div id="container">
     <table>
         <tr>
-            <td>Currency ID: </td>
-            <td><input  name="coinId" [(ngModel)]="coinId" id="coinId" /></td>
+            <td>Coin ID: </td>
+            <td><input  name="coinId" [(ngModel)]="coinId"/></td>
+        </tr>
+        <tr>
+            <td>Coin Name: </td>
+            <td><input name="coinName" [(ngModel)]="coinName" readonly/></td>
         </tr>
         <br>
         <br>
@@ -20,11 +24,11 @@
         </tr>
     </table>
 
-    <div id="response-msg">
-        <p>{{coinId}}</p>
+    <div id="response-msg" [ngStyle]="{'background-color': color}">
+        <p>{{responseMessage}}</p>
     </div>
     
-    <div class="btn-holder">
+    <div>
         <button class="btn" (click)="onClick()">Get Chart</button>
     </div>
 </div>

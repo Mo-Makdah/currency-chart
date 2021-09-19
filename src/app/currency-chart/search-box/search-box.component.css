@@ -1,12 +1,11 @@
 input{
-    height: 20px;
-    padding: 3px 7px;
-    margin-left: 10px;
-
+  height: 20px;
+  padding: 3px 7px;
+  margin-left: 10px;
 }
 
 #response-msg{
-  background-color: brown;
+  background-color: #EF403C;
   padding-left: 5px;
 }
 
@@ -15,40 +14,32 @@ input{
 }
 
 #container {
-    justify-content: space-between;
-    flex-direction: column;
-    height: 100%;
-    display: flex;
-  }
-#container .btn-container{
-    justify-content: flex-end;
-    display: flex;
-  }
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  display: flex;
+}
 
 .btn {
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    height: 100%;
-    width: 40%;
-    float: right;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: inherit;
-  }
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  height: 100%;
+  width: 40%;
+  float: right;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
 
-  .btn:hover{
-    background-color: #00B746;
-  }
+.btn:hover{
+  background-color: #00B746;
+}
  
-  .btn:active {
-    transform: scale(0.97);
-  }
+.btn:active {
+  transform: scale(0.97);
+}
   
-  .btn-block {
-    display: block;
-    width: 100%;
-  }

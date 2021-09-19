@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 
 @Component({
   selector: 'app-search-box',
@@ -12,10 +12,14 @@ export class SearchBoxComponent implements OnInit {
   fromDate: string = "";
   toDate: string = "";
 
+  // input fields 
+  @Input() coinName: string = "";
+  @Input() responseMessage: string = "";
+
   // event emitter
   @Output() btnClick = new EventEmitter();
 
-  responseMessage: String = "This message will be dynamic";
+  color: string = "white";
 
   constructor() { }
 
@@ -26,12 +30,10 @@ export class SearchBoxComponent implements OnInit {
     this.toDate = toDateObject.toISOString().split('T')[0];
     this.fromDate =  new Date(new Date().setDate(toDateObject.getDate()-30)).toISOString().split('T')[0];
     
-    //this.btnClick.emit();
   }
 
   // emit an event when clicked
   onClick() {
-    // get date 
     this.btnClick.emit();
   }
 
