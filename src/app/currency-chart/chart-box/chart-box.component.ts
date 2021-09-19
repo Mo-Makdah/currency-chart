@@ -49,9 +49,9 @@ export class ChartBoxComponent implements OnInit {
   // data variable
   chartData:ChartData[] = [];
 
-  @Input() responseMessage:string = "";
-  @Input() coinName:string = "";
-  @Input() color:string = "#EF403C";
+  responseMessage:string = "";
+  coinName:string = "";
+  color:string = "#EF403C";
   
 
   constructor(private chartService: ChartService) {
@@ -113,14 +113,10 @@ export class ChartBoxComponent implements OnInit {
         .subscribe(
           (data:DayData[]) => {
             if(data.length == 0){
-              // clear the chartData from previous data       
-              this.chartData = [];
               this.responseMessage = "Invalid Date Parameters";
               this.errorEvent.emit();
             }
             else{
-              // clear the chartData from previous data       
-              this.chartData = [];
 
               // fill the chartData with the data retrieved from the server
               for(var i = 0; i < data.length; i++){
@@ -155,7 +151,6 @@ export class ChartBoxComponent implements OnInit {
         // server error
         this.color = "#EF403C";
         this.coinName = "";
-        this.chartData = [];
         this.responseMessage = "Server Error! Try Again Later";
         this.errorEvent.emit();
         this.updateChart();

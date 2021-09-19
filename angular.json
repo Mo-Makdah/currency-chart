@@ -102,6 +102,37 @@
           }
         }
       }
+    },
+    "currency-chart": {
+      "projectType": "library",
+      "root": "projects/currency-chart",
+      "sourceRoot": "projects/currency-chart/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/currency-chart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/currency-chart/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/currency-chart/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/currency-chart/src/test.ts",
+            "tsConfig": "projects/currency-chart/tsconfig.spec.json",
+            "karmaConfig": "projects/currency-chart/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-currency-chart"

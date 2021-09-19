@@ -34,6 +34,7 @@ export class SearchBoxComponent implements OnInit {
 
   // emit an event when clicked
   onClick() {
+    this.responseMessage = "Loading...";
     this.btnClick.emit();
   }
 
