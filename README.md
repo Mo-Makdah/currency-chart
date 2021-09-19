@@ -56,6 +56,14 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Testing Cases:
+1) Submit with a coin ID input that doesn't exist - Handled by showing an error message in the search box component
+2) Submit with a bad date range like 2020-01-01 to 2018-01-01 which would return nothing - Handled by showing an error message in the search box component
+
+## Browser Support
+Angular supports most recent browsers.
+Check here for more details and an updated list of browsers: https://angular.io/guide/browser-support
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
