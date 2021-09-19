@@ -98,7 +98,9 @@ export class ChartBoxComponent implements OnInit {
 
   // get data from the service and render the chart again
   getData(coinId:String, fromDate:String, toDate: String) {
-
+    
+    this.chartData = [];
+    this.updateChart();
     this.chartService
     .getCoinData(coinId)
     .subscribe(
