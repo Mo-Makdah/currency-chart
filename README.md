@@ -9,6 +9,9 @@ For the purpose of this project, I have created the web component `src/app/curre
 1) The `src/app/currency-chart/search-box` component which takes inputs necessary for fetching the data and displaying, these 3 input fields are `Coin Id`, `From Date`, `To Date`. This component also has a button to submit the data, as well as a response message section which displays the request's response whether a success or an error.
 2) The `src/app/currency-chart/chart-box` component which takes the data from the search-box component input fields, and sends the input to the service which fetches the data from the API and displays the updated chart accordingly.
 
+## Error Handling
+This web component can handle all types of errors without crashing the application. Whether it's a user's error or a server error, it will all be handled and displayed for the user to see the type of error on hand.
+
 ## App Demo
 Temporary hosted on https://currency-chart-demo.netlify.app/
 
