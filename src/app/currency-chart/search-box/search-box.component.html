@@ -2,7 +2,7 @@
     <table>
         <tr>
             <td>Currency ID: </td>
-            <td><input list="coins" name="coins" value={{coinId}}/></td>
+            <td><input  name="coinId" [(ngModel)]="coinId" id="coinId" /></td>
         </tr>
         <br>
         <br>
@@ -11,20 +11,20 @@
         </tr>
         <tr>
             <td>From: </td>
-            <td><input type="date" id="from-date" value={{fromDate}}/></td>
+            <td><input type="date" name="fromDate" [(ngModel)]="fromDate" value={{fromDate}}/></td>
         </tr>
             
         <tr>
             <td>To: </td>
-            <td><input type="date" id="to-date" value={{toDate}}/></td>
+            <td><input type="date" name="toDate" [(ngModel)]="toDate" value={{toDate}}/></td>
         </tr>
     </table>
 
-    <div>
-        <p>{{responseMessage}}</p>
+    <div id="response-msg">
+        <p>{{coinId}}</p>
     </div>
     
     <div class="btn-holder">
-        <button class="btn">Get Chart</button>
+        <button class="btn" (click)="onClick()">Get Chart</button>
     </div>
 </div>

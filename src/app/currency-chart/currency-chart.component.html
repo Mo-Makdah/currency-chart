@@ -1,9 +1,9 @@
 <div id="container">
     <div id="section-chart">
-        <app-chart></app-chart>
+        <app-chart-box ([coinId])="coinId" ([fromDate])="fromDate" ([toDate])="toDate"></app-chart-box>
     </div>
     <div id="section-search-box">
-        <app-search-box></app-search-box>
+        <app-search-box (btnClick)="updateChart()"></app-search-box>
     </div>
 </div>
 

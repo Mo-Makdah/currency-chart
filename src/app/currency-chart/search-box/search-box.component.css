@@ -5,6 +5,15 @@ input{
 
 }
 
+#response-msg{
+  background-color: brown;
+  padding-left: 5px;
+}
+
+#response-msg p{
+  margin: 7px;
+}
+
 #container {
     justify-content: space-between;
     flex-direction: column;

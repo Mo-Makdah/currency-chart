@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-box',
@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class SearchBoxComponent implements OnInit {
   
   // fields for the component
-  coinId: String = "";
-  fromDate?: Date;
-  toDate?: Date;
+  coinId: string = "";
+  fromDate: string = "";
+  toDate: string = "";
+
+  // event emitter
+  @Output() btnClick = new EventEmitter();
 
   responseMessage: String = "This message will be dynamic";
 
@@ -19,8 +22,17 @@ export class SearchBoxComponent implements OnInit {
   ngOnInit(): void {
     // get today's day and calculate the date before 30 days and fill the variables
     this.coinId = "btc-bitcoin";
-    this.toDate = new Date();
-    this.fromDate =  new Date(new Date().setDate(this.toDate.getDate()-30));
+    var toDateObject = new Date();
+    this.toDate = toDateObject.toISOString().split('T')[0];
+    this.fromDate =  new Date(new Date().setDate(toDateObject.getDate()-30)).toISOString().split('T')[0];
+    
+    //this.btnClick.emit();
+  }
+
+  // emit an event when clicked
+  onClick() {
+    // get date 
+    this.btnClick.emit();
   }
 
 }
